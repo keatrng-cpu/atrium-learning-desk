@@ -1,0 +1,15 @@
+node_modules
+.vercel
+dist
+.output
+.nitro
+.tanstack
+*.log
+/tmp
+screenshots
+routeTree.gen.ts
+.DS_Store
+.env
+.env.*
+artifacts
+migrations/*.local.sql
