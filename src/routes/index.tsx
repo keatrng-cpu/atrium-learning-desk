@@ -2,6 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useMemo } from "react";
 import { ArrowRight } from "lucide-react";
 import { SUBJECTS } from "@/lib/curriculum";
+import { dueCards } from "@/lib/exam-vault";
 import {
   buildProfile,
   overallMastery,
@@ -22,12 +23,15 @@ function DeskHome() {
   const activity = useDesk((s) => s.activity);
   const mistakes = useDesk((s) => s.mistakes);
   const deadlines = useDesk((s) => s.deadlines);
+  const examCards = useDesk((s) => s.examCards);
+  const seedExamIfEmpty = useDesk((s) => s.seedExamIfEmpty);
   const targetGpa = useDesk((s) => s.targetGpa);
   const hydrated = useDesk((s) => s.hydrated);
 
   useEffect(() => {
     if (!hydrated) setHydrated(true);
-  }, [hydrated, setHydrated]);
+    seedExamIfEmpty();
+  }, [hydrated, setHydrated, seedExamIfEmpty]);
 
   const gpa = projectedGpa(activity);
   const mastery = overallMastery(progress);
@@ -40,6 +44,7 @@ function DeskHome() {
     [progress, mistakes],
   );
   const upcoming = [...deadlines].sort((a, b) => a.date.localeCompare(b.date)).slice(0, 3);
+  const examDue = dueCards(examCards ?? [], "all").length;
 
   return (
     <div className="mx-auto max-w-6xl space-y-8">
@@ -162,10 +167,10 @@ function DeskHome() {
               ))}
             </ul>
             <Link
-              to="/review"
+              to="/exam"
               className="mt-4 inline-flex items-center gap-1 text-sm text-accent hover:text-fg"
             >
-              Weekly review <ArrowRight className="size-3.5" />
+              Cram {examDue} due exam facts <ArrowRight className="size-3.5" />
             </Link>
           </div>
           <div className="rounded-xl border border-line bg-surface p-5">

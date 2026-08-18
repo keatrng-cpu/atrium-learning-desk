@@ -1,10 +1,11 @@
 import { Link, useRouterState } from "@tanstack/react-router";
-import { BookOpen, Inbox, LayoutDashboard, ScrollText } from "lucide-react";
+import { BookOpen, Inbox, LayoutDashboard, ScrollText, Layers } from "lucide-react";
 import { SUBJECTS } from "@/lib/curriculum";
 import { cn } from "@/lib/cn";
 
 const nav = [
   { to: "/", label: "Desk", icon: LayoutDashboard },
+  { to: "/exam", label: "Exams", icon: Layers },
   { to: "/ingest", label: "Intake", icon: Inbox },
   { to: "/review", label: "Review", icon: ScrollText },
 ];
@@ -83,7 +84,7 @@ export function AppShell({ children }: { children: React.ReactNode }) {
             <BookOpen className="size-5 text-muted" />
           </header>
           <main className="flex-1 px-4 py-6 md:px-8 md:py-8">{children}</main>
-          <nav className="sticky bottom-0 grid grid-cols-4 border-t border-line bg-bg/95 backdrop-blur md:hidden">
+          <nav className="sticky bottom-0 grid grid-cols-5 border-t border-line bg-bg/95 backdrop-blur md:hidden">
             {nav.map((item) => (
               <Link
                 key={item.to}

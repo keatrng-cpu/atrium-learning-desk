@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { ArrowUp } from "lucide-react";
 import { askProfessor } from "@/lib/ai";
+import { cardsFromExtracts, localExtractCards } from "@/lib/exam-vault";
 import { localProfessorReply, seedGreeting } from "@/lib/professor";
 import { useDesk } from "@/lib/store";
 import { buildProfile } from "@/lib/mastery";
@@ -22,8 +23,10 @@ export function ProfessorChat({
   const mistakes = useDesk((s) => s.mistakes);
   const notes = useDesk((s) => s.notes);
   const chats = useDesk((s) => s.chats);
+  const examCards = useDesk((s) => s.examCards);
   const pushChat = useDesk((s) => s.pushChat);
   const logActivity = useDesk((s) => s.logActivity);
+  const rememberCards = useDesk((s) => s.rememberCards);
 
   const key = chapterId ? `${subjectId}:${chapterId}` : subjectId;
   const profile = useMemo(
@@ -33,7 +36,16 @@ export function ProfessorChat({
   const history = chats[key] ?? [];
   const [text, setText] = useState("");
   const [busy, setBusy] = useState(false);
+  const [savedCount, setSavedCount] = useState(0);
   const scroller = useRef<HTMLDivElement>(null);
+
+  const examMemory = useMemo(() => {
+    return (examCards ?? [])
+      .filter((c) => subjectId === "master" || c.subjectId === subjectId)
+      .slice(0, 12)
+      .map((c) => `- [${c.scope}] ${c.front} → ${c.back}`)
+      .join("\n");
+  }, [examCards, subjectId]);
 
   useEffect(() => {
     if (history.length === 0) {
@@ -56,7 +68,7 @@ export function ProfessorChat({
     const ingested = notes
       .filter((n) => subjectId === "master" || n.subjectId === subjectId)
       .slice(0, 2)
-      .map((n) => `${n.title}: ${n.body}`)
+      .map((n) => `${n.title}: ${n.body}${n.confusion ? `\nConfusion: ${n.confusion}` : ""}`)
       .join("\n\n");
 
     try {
@@ -69,6 +81,7 @@ export function ProfessorChat({
           question: q,
           history: [...history, { role: "user", text: q }],
           ingested: ingested || undefined,
+          examMemory: examMemory || undefined,
         },
       });
       const reply =
@@ -76,11 +89,33 @@ export function ProfessorChat({
           ? res.text
           : localProfessorReply(q, subjectId, chapterId, profile);
       pushChat(key, { role: "professor", text: reply });
+
+      const sid = subjectId === "master" ? "accounting" : subjectId;
+      const fromModel =
+        res.ok && "extracts" in res && res.extracts
+          ? cardsFromExtracts(
+              res.extracts.map((e) => ({
+                ...e,
+                subjectId: e.subjectId || sid,
+                chapterId: e.chapterId ?? chapterId,
+                source: "chat" as const,
+              })),
+            )
+          : [];
+      const fallback = localExtractCards(q, reply, subjectId, chapterId);
+      const incoming = fromModel.length ? fromModel : fallback;
+      if (incoming.length) {
+        rememberCards(incoming);
+        setSavedCount(incoming.length);
+      }
     } catch {
-      pushChat(key, {
-        role: "professor",
-        text: localProfessorReply(q, subjectId, chapterId, profile),
-      });
+      const reply = localProfessorReply(q, subjectId, chapterId, profile);
+      pushChat(key, { role: "professor", text: reply });
+      const incoming = localExtractCards(q, reply, subjectId, chapterId);
+      if (incoming.length) {
+        rememberCards(incoming);
+        setSavedCount(incoming.length);
+      }
     } finally {
       if (subjectId !== "master") {
         logActivity({ subjectId, chapterId, kind: "chat", minutes: 3 });
@@ -100,6 +135,11 @@ export function ProfessorChat({
         <p className="font-display text-lg">
           {subjectId === "master" ? "The Overseer" : "Subject desk"}
         </p>
+        {savedCount > 0 ? (
+          <p className="mt-1 text-[11px] text-sage">
+            {savedCount} exam fact{savedCount === 1 ? "" : "s"} filed for unit tests / finals
+          </p>
+        ) : null}
       </div>
       <div
         ref={scroller}
@@ -138,7 +178,7 @@ export function ProfessorChat({
         <input
           value={text}
           onChange={(e) => setText(e.target.value)}
-          placeholder="Ask anything in this subject"
+          placeholder="Ask, or say “save this for the final”"
           className="h-11 min-w-0 flex-1 rounded-md border border-line bg-bg px-3 text-sm outline-none ring-accent/30 placeholder:text-faint focus:ring-2"
         />
         <Button type="submit" size="icon" disabled={busy || !text.trim()} aria-label="Send">

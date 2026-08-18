@@ -1,11 +1,13 @@
 import { create } from "zustand";
 import { persist, createJSONStorage } from "zustand/middleware";
 import { DEFAULT_DEADLINES, SUBJECTS, getChapter } from "./curriculum";
+import { cardsFromMisses, mergeCards, reviewAdvance, seedCurriculumCards } from "./exam-vault";
 import type {
   Activity,
   ChapterProgress,
   ChatMessage,
   Deadline,
+  ExamCard,
   IngestedNote,
   MasteryStatus,
   Mistake,
@@ -28,6 +30,7 @@ export type DeskState = {
   notes: IngestedNote[];
   chats: Record<string, ChatMessage[]>;
   deadlines: Deadline[];
+  examCards: ExamCard[];
   lastVisit: number | null;
   setName: (name: string) => void;
   setHydrated: (v: boolean) => void;
@@ -45,6 +48,9 @@ export type DeskState = {
   ingest: (n: Omit<IngestedNote, "id" | "at">) => void;
   pushChat: (key: string, msg: Omit<ChatMessage, "id" | "at">) => void;
   addDeadline: (d: Omit<Deadline, "id">) => void;
+  rememberCards: (cards: ExamCard[]) => void;
+  reviewExamCard: (id: string, knew: boolean) => void;
+  seedExamIfEmpty: () => void;
   resetDesk: () => void;
 };
 
@@ -73,6 +79,7 @@ export const useDesk = create<DeskState>()(
       notes: [],
       chats: {},
       deadlines: DEFAULT_DEADLINES,
+      examCards: [],
       lastVisit: null,
       setName: (scholarName) => set({ scholarName }),
       setHydrated: (hydrated) => set({ hydrated }),
@@ -153,6 +160,17 @@ export const useDesk = create<DeskState>()(
           minutes,
           score,
         });
+        if (misses.length) {
+          get().rememberCards(
+            cardsFromMisses(
+              misses.map((m, i) => ({
+                ...m,
+                id: `m-${stamp}-${i}`,
+                at: stamp,
+              })),
+            ),
+          );
+        }
       },
       addMinutes: (subjectId, chapterId, minutes) => {
         const key = ck(subjectId, chapterId);
@@ -199,6 +217,21 @@ export const useDesk = create<DeskState>()(
           deadlines: [...get().deadlines, { ...d, id: `dl-${Date.now()}` }],
         });
       },
+      rememberCards: (cards) => {
+        if (!cards.length) return;
+        set({ examCards: mergeCards(get().examCards ?? [], cards) });
+      },
+      reviewExamCard: (id, knew) => {
+        set({
+          examCards: (get().examCards ?? []).map((c) =>
+            c.id === id ? reviewAdvance(c, knew) : c,
+          ),
+        });
+      },
+      seedExamIfEmpty: () => {
+        if ((get().examCards ?? []).length > 0) return;
+        set({ examCards: seedCurriculumCards() });
+      },
       resetDesk: () =>
         set({
           progress: {},
@@ -207,6 +240,7 @@ export const useDesk = create<DeskState>()(
           notes: [],
           chats: {},
           deadlines: DEFAULT_DEADLINES,
+          examCards: seedCurriculumCards(),
         }),
     }),
     {
@@ -230,6 +264,7 @@ export const useDesk = create<DeskState>()(
         notes: s.notes,
         chats: s.chats,
         deadlines: s.deadlines,
+        examCards: s.examCards,
         lastVisit: s.lastVisit,
       }),
       onRehydrateStorage: () => (state) => {

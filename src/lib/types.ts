@@ -104,6 +104,24 @@ export type ChapterProgress = {
   minutes: number;
 };
 
+export type ExamScope = "unit" | "final" | "both";
+
+export type ExamCard = {
+  id: string;
+  subjectId: SubjectId;
+  chapterId?: string;
+  scope: ExamScope;
+  front: string;
+  back: string;
+  why: string;
+  source: "curriculum" | "miss" | "chat" | "intake" | "pin";
+  box: number;
+  dueAt: number;
+  seen: number;
+  createdAt: number;
+  lastResult?: "knew" | "missed";
+};
+
 export type SkillProfile = {
   speedMinutesPerChapter: number;
   accuracy: number;
@@ -111,3 +129,4 @@ export type SkillProfile = {
   weaknesses: string[];
   streakDays: number;
 };
+

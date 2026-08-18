@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import { SUBJECTS } from "@/lib/curriculum";
+import { cardsFromIntake } from "@/lib/exam-vault";
 import { useDesk } from "@/lib/store";
 import type { SubjectId } from "@/lib/types";
 import { Button } from "@/components/ui/button";
@@ -9,6 +10,7 @@ export const Route = createFileRoute("/ingest")({ component: IngestPage });
 
 function IngestPage() {
   const ingest = useDesk((s) => s.ingest);
+  const rememberCards = useDesk((s) => s.rememberCards);
   const notes = useDesk((s) => s.notes);
   const [subjectId, setSubjectId] = useState<SubjectId>("accounting");
   const [title, setTitle] = useState("");
@@ -23,7 +25,7 @@ function IngestPage() {
         <h1 className="mt-1 font-display text-4xl">Send the lecture here.</h1>
         <p className="mt-3 max-w-xl text-sm text-muted">
           Paste a chapter name, slide notes, or the homework that is confusing. The chairs
-          will keep it, and the next chat will already know.
+          will keep it, file exam facts automatically, and the next chat will already know.
         </p>
       </header>
 
@@ -38,6 +40,16 @@ function IngestPage() {
             body: body.trim(),
             confusion: confusion.trim() || undefined,
           });
+          rememberCards(
+            cardsFromIntake({
+              id: "tmp",
+              at: Date.now(),
+              subjectId,
+              title: title.trim() || "Untitled lecture",
+              body: body.trim(),
+              confusion: confusion.trim() || undefined,
+            }),
+          );
           setTitle("");
           setBody("");
           setConfusion("");

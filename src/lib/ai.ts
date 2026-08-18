@@ -1,4 +1,5 @@
 import { createServerFn } from "@tanstack/react-start";
+import { parseExamBlock } from "./exam-vault";
 import { professorSystemPrompt } from "./professor";
 import type { SkillProfile, SubjectId } from "./types";
 
@@ -11,6 +12,7 @@ export type AskInput = {
   history: { role: "user" | "professor"; text: string }[];
   confusion?: string;
   ingested?: string;
+  examMemory?: string;
 };
 
 export const askProfessor = createServerFn({ method: "POST" })
@@ -18,7 +20,7 @@ export const askProfessor = createServerFn({ method: "POST" })
   .handler(async ({ data }) => {
     const apiKey = process.env.XAI_API_KEY;
     if (!apiKey) {
-      return { ok: false as const, error: "offline" };
+      return { ok: false as const, error: "offline" as const };
     }
 
     const system = professorSystemPrompt(data);
@@ -41,8 +43,8 @@ export const askProfessor = createServerFn({ method: "POST" })
         body: JSON.stringify({
           model: "grok-4.5",
           messages,
-          max_tokens: 700,
-          temperature: 0.4,
+          max_tokens: 900,
+          temperature: 0.35,
         }),
       });
       if (!res.ok) {
@@ -51,7 +53,9 @@ export const askProfessor = createServerFn({ method: "POST" })
       const body = (await res.json()) as {
         choices: { message: { content: string } }[];
       };
-      return { ok: true as const, text: body.choices[0]?.message.content ?? "" };
+      const raw = body.choices[0]?.message.content ?? "";
+      const parsed = parseExamBlock(raw);
+      return { ok: true as const, text: parsed.text, extracts: parsed.cards };
     } catch {
       return { ok: false as const, error: "network" };
     }

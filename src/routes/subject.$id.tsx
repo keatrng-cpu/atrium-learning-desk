@@ -1,7 +1,8 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { z } from "zod";
 import { getSubject } from "@/lib/curriculum";
+import { cardsFromChapterPin } from "@/lib/exam-vault";
 import { chapterKey, useDesk } from "@/lib/store";
 import { ProfessorChat } from "@/components/professor-chat";
 import { Button } from "@/components/ui/button";
@@ -33,6 +34,9 @@ function SubjectDesk() {
   const markLearning = useDesk((s) => s.markLearning);
   const markPractice = useDesk((s) => s.markPractice);
   const recordQuiz = useDesk((s) => s.recordQuiz);
+  const rememberCards = useDesk((s) => s.rememberCards);
+  const seedExamIfEmpty = useDesk((s) => s.seedExamIfEmpty);
+  const [pinned, setPinned] = useState(false);
 
   const [tab, setTab] = useState<"notes" | "practice" | "quiz" | "mistakes" | "chat">("notes");
   const [simple, setSimple] = useState(false);
@@ -214,7 +218,19 @@ function SubjectDesk() {
                 </div>
               </>
             )}
-            <Button onClick={startNotes}>Mark as studying</Button>
+            <div className="flex flex-wrap gap-2">
+              <Button onClick={startNotes}>Mark as studying</Button>
+              <Button
+                variant="outline"
+                onClick={() => {
+                  seedExamIfEmpty();
+                  rememberCards(cardsFromChapterPin(sub.id, ch.id));
+                  setPinned(true);
+                }}
+              >
+                {pinned ? "Filed for exams" : "Save for unit + final"}
+              </Button>
+            </div>
           </article>
         ) : null}
 
