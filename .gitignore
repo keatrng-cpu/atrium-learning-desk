@@ -13,3 +13,5 @@ routeTree.gen.ts
 .env.*
 artifacts
 migrations/*.local.sql
+ai/.sessions.log
+graphify-out/.post-commit.log
