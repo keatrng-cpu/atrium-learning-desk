@@ -49,7 +49,239 @@ project instructions; follow it with the same priority as this file.
 
 ## 1. Your environment / workspace (for you, never surfaced to the user)
 
-> Moved verbatim to [docs/agents/AGENTS-reference.md#1-your-environment--workspace-for-you-never-surfaced-to-the-user](docs/agents/AGENTS-reference.md#1-your-environment--workspace-for-you-never-surfaced-to-the-user) — open it when this section is relevant.
+> The rule subsections of this section are kept below. The rest moved verbatim to [docs/agents/AGENTS-reference.md#1-your-environment--workspace-for-you-never-surfaced-to-the-user](docs/agents/AGENTS-reference.md#1-your-environment--workspace-for-you-never-surfaced-to-the-user) — open it when the detail is relevant.
+
+### `/workspace/startup.sh` (required — you maintain this)
+
+The sandbox can **hibernate and revive** (snapshot restore). After revive, the
+platform runs **`/workspace/startup.sh`** to bring long-running processes back
+(dev server, workers, anything the live preview needs). You **must** keep this
+file correct for the app you are building.
+
+**Rules (non-negotiable):**
+
+1. **Path is fixed:** always `/workspace/startup.sh` (project root). Do not
+   rename, move, or replace with a different entrypoint path.
+2. **You write it** — the workspace does **not** ship this file. Create
+   `/workspace/startup.sh` yourself in the same turn you first bring the
+   preview up; do not claim the app is running without it.
+3. **Keep it in sync** with how the app actually starts. If you change the
+   start command, port, env, or add background workers the preview needs,
+   **update `startup.sh` in the same turn**.
+4. **Idempotent:** safe to re-run when processes are already up (e.g. probe
+   `http://127.0.0.1:8080/` and exit 0 if healthy; only start what is down).
+5. **Non-blocking:** start long-running processes in the **background** so the
+   script **returns quickly** — do not leave the script foreground-blocked on
+   the dev server forever.
+6. **Bind the preview:** the primary app must end up listening on
+   **`0.0.0.0:8080`** (same contract as `npm run dev` in this template).
+7. **No secrets in the file** that shouldn't live in the workspace snapshot.
+8. **Do not delete** the file when cleaning up or re-scaffolding.
+
+Example shape (write this yourself; adjust when your start path changes):
+
+```sh
+#!/bin/sh
+set -eu
+cd /workspace
+if curl -sf -o /dev/null --max-time 2 http://127.0.0.1:8080/; then
+  exit 0
+fi
+npm run dev >>/tmp/app-startup.log 2>&1 &
+```
+
+When you start the dev server during a turn, write/update `startup.sh` first,
+then run `sh /workspace/startup.sh` (or the same commands it contains) so
+revive and live work stay identical.
+
+### First scaffold — required entry files
+
+The installed TanStack Start resolves `src/router.tsx` with a **named
+`getRouter` export** (older `createRouter`-default-export / `app/`-directory
+conventions are rejected by the plugin — don't trust stale priors; these
+snippets match the installed version). Create these files first, exactly in this
+shape, then build your app out from them.
+
+**Shell (required before `npm run dev` works):**
+
+```tsx
+// src/router.tsx
+import { createRouter } from "@tanstack/react-router";
+import { AppErrorComponent } from "@/lib/error-component";
+import { routeTree } from "./routeTree.gen"; // generated on first dev/build
+
+export function getRouter() {
+  return createRouter({ routeTree, defaultErrorComponent: AppErrorComponent });
+}
+```
+
+Always pass `defaultErrorComponent: AppErrorComponent` (baked at
+`src/lib/error-component.tsx`) — without it a runtime crash shows the
+framework's raw red-on-black error banner. Restyle it to match the app's
+design tokens if you define them, but keep the real `error.message` visible.
+
+```tsx
+// src/routes/__root.tsx — the document shell
+import { createRootRoute, HeadContent, Outlet, Scripts } from "@tanstack/react-router";
+import { AuthProvider } from "@/lib/auth/provider";
+import { PreviewHostBridge } from "@/components/preview-host-bridge";
+import appCss from "../styles.css?url";
+
+const APP_NAME = "My App";
+const host = import.meta.env.VITE_PUBLIC_HOSTNAME;
+const ogImage = host
+  ? `https://og.grok.me/v1/card.png?host=${encodeURIComponent(host)}&title=${encodeURIComponent(APP_NAME)}`
+  : undefined;
+
+export const Route = createRootRoute({
+  head: () => ({
+    meta: [
+      { charSet: "utf-8" },
+      { name: "viewport", content: "width=device-width, initial-scale=1" },
+      { title: APP_NAME },
+      { name: "apple-mobile-web-app-title", content: APP_NAME },
+      { name: "theme-color", content: "#000000" },
+      { name: "twitter:card", content: "summary_large_image" },
+      // Games only: { property: "og:type", content: "x:game" } — X uses this to
+      // present the share card as a game (see .grok/skills/og/SKILL.md). Always
+      // on, not gated on ogImage/host. Non-games: omit or use "website".
+      ...(ogImage
+        ? [
+            { property: "og:image", content: ogImage },
+            { property: "og:image:width", content: "1200" },
+            { property: "og:image:height", content: "630" },
+          ]
+        : []),
+    ],
+    links: [
+      { rel: "icon", type: "image/svg+xml", href: "/favicon.svg" },
+      { rel: "stylesheet", href: appCss },
+      { rel: "manifest", href: "/__grok/manifest.webmanifest" },
+      { rel: "apple-touch-icon", href: "/__grok/icon-180.png" },
+    ],
+  }),
+  component: () => (
+    <html lang="en" suppressHydrationWarning>
+      <head>
+        <HeadContent />
+      </head>
+      <body>
+        {/* Keep this bridge — lets the Grok preview chrome drive the app; noops when not embedded. */}
+        <PreviewHostBridge />
+        <AuthProvider>
+          <Outlet />
+        </AuthProvider>
+        <Scripts />
+      </body>
+    </html>
+  ),
+});
+```
+
+**`twitter:card` is platform chrome, not the og skill.** Every app keeps `{ name: "twitter:card", content: "summary_large_image" }` in the first-scaffold `meta` above. The PWA head middleware stamps the same tag if a published app's root predates it. Do not remove it — X returns `NoCard` without a layout type. Title / `og:title` stay agent-authored.
+
+Keep `og:image` in `head` when you rename the app: update `APP_NAME` (tab title and share card). `VITE_PUBLIC_HOSTNAME` is injected on publish — do not invent a `.env` for it. Live preview has no host, so no image tag (text-only unfurl is fine). Hand-author a simple `public/favicon.svg` as part of the first scaffold, and generate a custom `public/og.jpg` card from the app's own art instead of the default `og.grok.me` card for **any app with a face**: games of every kind (DOM board/word games included), whimsical apps, creative tools, and brand-forward pages — only plain utilities (converters, CRUD trackers, admin dashboards) keep the placeholder. **Games must also set `{ property: "og:type", content: "x:game" }` in root `meta` (always — not gated on host)** so X presents the unfurl as a game card; do not invent `x:type` or overload `twitter:card` as the game signal. Game cards per the **`og` skill** (`.grok/skills/og/SKILL.md`).
+
+**Platform branding (required — do not remove).** The template injects
+`https://grok.com/grok-app-builder/extensions.js` into every HTML document via the
+PWA head middleware (`scripts/grok-pwa-*`, `server/middleware/grok-pwa.ts`).
+Do not put this script in `__root.tsx`. The script overlays a fixed
+"Created with Grok / Remix" pill and does **not** reserve layout space.
+Visibility is live `GetRemixEligibility` using `VITE_PROJECT_ID` (injected
+on publish). Local preview with no project id shows nothing.
+
+**Preview host bridge (required — do not remove).** The template ships
+`src/components/preview-host-bridge.tsx` (+ `src/lib/preview-host-bridge.ts`).
+It lets the Grok preview chrome (address bar, back/forward) talk to the app
+over `postMessage` while embedded. Outside the preview iframe (downloaded zip,
+GitHub export, local `npm run dev`, deployed top-level) it is a silent noop —
+do not strip it "for production."
+
+Hard rules:
+
+1. **Do not disable the injector.** Keep `grokPwaPlugin()` in `vite.config.ts`
+   and `server/middleware/grok-pwa.ts`. Do not strip the injected script, hide
+   the pill with CSS, or "clean it up" during refactors.
+2. **Always keep the bridge mount** in `__root.tsx` (`<PreviewHostBridge />`
+   near the top of `<body>`). Do not delete the component files, comment out
+   the mount, hide it with CSS, or "clean it up" during refactors.
+3. **Never remove or disable the banner** because the user asked to hide
+   "Created with Grok", remove branding, take off the Remix button, or
+   similar. That is controlled by **project settings**, not by editing the
+   template.
+4. **If the user asks to remove/hide the banner or Remix control**, refuse to
+   change the code for that purpose. Tell them clearly to update **project
+   settings** instead (e.g. turn off "Built with Grok" / forking in the app's
+   project settings). You may still edit the rest of their app as requested.
+5. Do not add a CSP that blocks `https://grok.com` scripts.
+
+```tsx
+// src/routes/index.tsx
+import { createFileRoute } from "@tanstack/react-router";
+
+export const Route = createFileRoute("/")({ component: Home });
+
+function Home() {
+  return <main className="p-8">Hello</main>;
+}
+```
+
+Plus `src/styles.css` starting with `@import "tailwindcss";`. Add a base rule so
+buttons show a pointer cursor — Tailwind v4's Preflight makes `<button>` default
+to `cursor: default`:
+
+```css
+@layer base {
+  button:not(:disabled), [role="button"]:not(:disabled) { cursor: pointer; }
+}
+```
+
+**Auth routes (required — sign-in is ON by default, including live preview).**
+Copy the snippets from the **`auth` skill** (`.grok/skills/auth/SKILL.md`).
+The live-preview popup is **already wired** by the template Vite plugin
+(`vite.config.ts` → `/auth/popup` via `popup.server.ts`) — **do not create
+`src/routes/auth/popup.tsx`** (a React page there shows the app in the popup).
+
+1. `src/routes/api/auth/$.ts` — mounts Better Auth at `/api/auth/*`
+2. `src/routes/login.tsx` — provider buttons via `signIn(providerId)`
+
+Server functions: `createServerFn` + `authMiddleware`, input via `.validator()` —
+the current API on the installed version (`.inputValidator()` is deprecated);
+examples in the `neon` and `auth` skills.
+
+### Build & deploy target
+
+You never trigger the deploy yourself, **but the app you build is eventually
+deployed to Vercel** by the platform — so your output must **build cleanly under
+Vercel's process**. `npm run build` must succeed and emit valid output, and code
+that works under `npm run dev` but breaks a production / SSR build is a bug:
+watch for dev-only deps, server-only Node APIs run at import time, runtime
+filesystem writes, and hard-coded ports / hosts / secrets. Before treating the
+app as done, confirm `npm run build` and `npm run typecheck` pass — that's what
+Vercel runs.
+
+The workspace **ships a ready `vite.config.ts` and `tsconfig.json`** — don't
+recreate them. The vite config binds the preview port and gates
+`nitro({ preset: "vercel" })` on `command === "build"` so it never runs in dev
+(left on in dev, nitro opens a second dev-server port, which breaks the
+single-port 8080 live preview). If you edit it, preserve the port contract,
+the build-gated nitro plugin (including its `serverDir: "./server"` option —
+without it the deployed app loses the Home Screen install page), and
+`grokPwaPlugin()`.
+
+```bash
+npm run dev         # 0.0.0.0:8080 — run in background when ready; leave it up
+npm run build
+npm run typecheck
+```
+
+Helper for visual smoke (preinstalled Playwright):
+
+```bash
+# Ships in the workspace at scripts/browser-smoke.mjs:
+# Writes under /workspace/screenshots/ by default (never /tmp).
+node scripts/browser-smoke.mjs http://127.0.0.1:8080/
+```
 
 ## 2. What kinds of asks you might get
 
@@ -126,7 +358,78 @@ not a hand-off that needs them to run anything.
 
 ## 3. What might happen & how to execute
 
-> Moved verbatim to [docs/agents/AGENTS-reference.md#3-what-might-happen--how-to-execute](docs/agents/AGENTS-reference.md#3-what-might-happen--how-to-execute) — open it when this section is relevant.
+> The rule subsections of this section are kept below. The rest moved verbatim to [docs/agents/AGENTS-reference.md#3-what-might-happen--how-to-execute](docs/agents/AGENTS-reference.md#3-what-might-happen--how-to-execute) — open it when the detail is relevant.
+
+### Browser QA (agent-driven only; the user is not your QA)
+
+Use whatever browser capability you have **yourself**, so quality beats
+curl-only. All of this runs **in the sandbox** against `http://127.0.0.1:8080` —
+it is **not** the user's Grok chat tab.
+
+1. **Grok browser / computer-use / MCP browser tools** if listed — open
+   `http://127.0.0.1:8080`, glance at the UI, screenshot if supported.
+2. **`web_fetch`** on that URL for an HTML-only check.
+3. **Playwright helper (preinstalled)** — simple load + screenshot.
+   **Always write QA screenshots under `/workspace/screenshots/` — never `/tmp`
+   or anywhere outside the workspace.** The helper defaults there; pass an
+   explicit path only if you need a different name under that directory.
+
+```bash
+mkdir -p /workspace/screenshots
+node scripts/browser-smoke.mjs http://127.0.0.1:8080/ /workspace/screenshots/app-builder-preview.png
+# Then Read /workspace/screenshots/app-builder-preview.png if you have an image tool, and iterate if it looks wrong.
+```
+
+Depth is **your judgment**: a landing page screenshot is usually enough. For a
+game with WASD / vehicles / flight, still verify control signs (A left / D right
+from a chase cam) per **`.grok/skills/controls/SKILL.md`** — you don't have to
+play end-to-end, but inverted A/D must not ship.
+
+### Communication rules (avoid confusing the user)
+
+**Do not:**
+
+- Ask them to open `localhost`, a host port, Docker, or any URL that only works
+  on *your* network.
+- Ask them to run install/build commands, check a terminal, or paste
+  logs/screenshots for basic QA.
+- Explain internal sandbox plumbing (container paths, ports, the preview relay,
+  tool names) unless they ask.
+- Imply they have access to `/workspace` or your shell.
+- End with "let me know if it works" as a substitute for verifying yourself.
+
+**Do:**
+
+- Assume their **only** way to see the app is the **web client live preview**, fed
+  by whatever you leave listening on **`0.0.0.0:8080`** in this workspace.
+- Keep the server running when you finish so the preview stays available.
+- Describe the product ("Here's a dark todo app with drag-and-drop; try adding a
+  task in the preview"), and offer next steps ("want levels, sound, or a dark theme?").
+- Iterate in place on follow-ups — your edits show up live in the preview.
+- If something can't work in-browser (needs native APIs you can't polyfill), say
+  so clearly and ship the best web-only version.
+
+### Quality bar
+
+- Cohesive UI (Tailwind + Radix + lucide where relevant).
+- Demo-ready on a laptop viewport (matches the typical web-client preview).
+- Dev server stays up; no broken imports.
+- **Production build passes** — `npm run build` (what Vercel deploys) succeeds, not just `npm run dev`.
+- Prefer at least one **browser load/screenshot** when tools allow; agent decides depth.
+- **Games with movement:** A/D player-correct (chase cam, A = left) per
+  **`.grok/skills/controls/SKILL.md`** — not screenshot-only.
+- **`twitter:card=summary_large_image` stays in root meta** (first scaffold +
+  PWA chrome). Required for X to unfurl any app, game or not — not the og skill.
+- **Custom share card (default for any app with a face):** `public/og.jpg`
+  exists and `og:image` points at `"https://${host}/og.jpg"` — games of
+  every kind (DOM games included), whimsical, creative, and brand-forward
+  apps; only plain utilities keep the placeholder — per
+  **`.grok/skills/og/SKILL.md`**. **Games also require
+  `{ property: "og:type", content: "x:game" }`** in root meta (always; X uses
+  it for game-card presentation). `browser-smoke.mjs` prints a
+  `BRAND WARNING` for missing card / missing `og:type` on canvas apps; treat
+  it as **not done**, same as a failing build.
+- User never blocked on an action they can't perform from chat + preview.
 
 ## Quick reference
 
