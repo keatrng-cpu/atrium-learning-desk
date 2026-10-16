@@ -1,17 +1,17 @@
-# Graph Report - atrium-learning-desk  (2026-10-13)
+# Graph Report - atrium-learning-desk  (2026-10-16)
 
 ## Corpus Check
-- 122 files · ~142,102 words
+- 123 files · ~142,403 words
 - Verdict: corpus is large enough that graph structure adds value.
-- Unclassified: 9 file(s) not represented in the graph (top: (none) 6, .css 2, .lock 1)
+- Unclassified: 10 file(s) not represented in the graph (top: (none) 7, .css 2, .lock 1)
 
 ## Summary
-- 1320 nodes · 1955 edges · 84 communities (76 shown, 8 thin omitted)
+- 1330 nodes · 1965 edges · 84 communities (76 shown, 8 thin omitted)
 - Extraction: 97% EXTRACTED · 3% INFERRED · 0% AMBIGUOUS · INFERRED: 60 edges (avg confidence: 0.92)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `b6ab39b3`
+- Built from commit: `5ddfc8ff`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -113,6 +113,8 @@
 10. `Phaser 3 / 4 — Deep Engine Guide (scenes, physics, scale, tilemaps, pooling, architecture)` - 14 edges
 
 ## Surprising Connections (you probably didn't know these)
+- `What is already here` --references--> `grokPwaPlugin()`  [INFERRED]
+  docs/agents/AGENTS-reference.md → scripts/grok-pwa-plugin.mjs
 - `Reach for shadcn first` --references--> `Button()`  [INFERRED]
   .grok/skills/design-ui/references/refined-ui.md → src/components/ui/button.tsx
 - `Share cards, favicon, and app icons` --references--> `build()`  [INFERRED]
@@ -121,8 +123,6 @@
   .grok/skills/building-games/references/phaser.md → ai/memory/mem.py
 - `Scene control verbs (get these exactly right — a top bug source)` --references--> `stop()`  [INFERRED]
   .grok/skills/building-games/references/phaser.md → ai/memory/mem.py
-- `Build & deploy target` --references--> `grokPwaPlugin()`  [INFERRED]
-  AGENTS.md → scripts/grok-pwa-plugin.mjs
 
 ## Import Cycles
 - None detected.
@@ -134,8 +134,8 @@ Cohesion: 0.05
 Nodes (45): build_parser(), load_props(), main(), paste_prop(), placement_xy(), read_json(), resolve_path(), alpha_bbox() (+37 more)
 
 ### Community 1 - "grok-pwa-shared.mjs"
-Cohesion: 0.07
-Nodes (45): playwright, computeBrandWarnings(), MAX_CARD_BYTES, rootDeclaresOgTypeGame(), stripJsComments(), checkedOutputPath(), checkedUrl(), fail() (+37 more)
+Cohesion: 0.06
+Nodes (51): 1. Your environment / workspace (for you, never surfaced to the user), Build & deploy target, First scaffold — required entry files, `/workspace/startup.sh` (required — you maintain this), pg, playwright, computeBrandWarnings(), MAX_CARD_BYTES (+43 more)
 
 ### Community 2 - "video2dsprite.py"
 Cohesion: 0.08
@@ -174,16 +174,16 @@ Cohesion: 0.07
 Nodes (27): Anti-patterns, Border radius (concentric, mandatory), Buttons (token overlay / fallback), Cards / menus (token overlay / fallback), Color discipline, Components (product chrome), Content tone in the UI, Design tokens (encode once, reuse) (+19 more)
 
 ### Community 11 - "db.ts"
-Cohesion: 0.12
-Nodes (20): Database (server-only), Env vars — do **not** create a `.env` file, Migrations, Neon Postgres, Preview ↔ production parity, @electric-sql/pglite, pg, createNeonSql() (+12 more)
+Cohesion: 0.13
+Nodes (19): Database (server-only), Env vars — do **not** create a `.env` file, Migrations, Neon Postgres, Preview ↔ production parity, @electric-sql/pglite, createNeonSql(), createPgliteSql() (+11 more)
 
 ### Community 12 - "Animations"
 Cohesion: 0.08
 Nodes (24): Animations, Choosing Between Motion and CSS, Code Example, Contextual Icon Animations, CSS Example, CSS-Only Stagger, CSS Transition Approach (No Motion), CSS Transitions vs. Keyframes (+16 more)
 
 ### Community 13 - "1. Your environment / workspace (for you, never surfaced to the user)"
-Cohesion: 0.09
-Nodes (23): 0. Two worlds (read this first), 1. Your environment / workspace (for you, never surfaced to the user), 2. What kinds of asks you might get, 3. What might happen & how to execute, App Builder Workspace, Browser QA (agent-driven only; the user is not your QA), Build & deploy target, Communication rules (avoid confusing the user) (+15 more)
+Cohesion: 0.07
+Nodes (27): 0. Two worlds (read this first), 2. What kinds of asks you might get, 3. What might happen & how to execute, App Builder Workspace, Browser QA (agent-driven only; the user is not your QA), Communication rules (avoid confusing the user), Generated art (2D only), Memory protocol (auto, every task — do not wait to be asked) (+19 more)
 
 ### Community 14 - "preview-host-bridge.ts"
 Cohesion: 0.13
@@ -435,23 +435,23 @@ Nodes (4): Atrium Learning Desk, Run, Stack, What it is
 
 ## Knowledge Gaps
 - **44 isolated node(s):** `@hookform/resolvers`, `@radix-ui/react-accordion`, `@radix-ui/react-alert-dialog`, `@radix-ui/react-avatar`, `@radix-ui/react-checkbox` (+39 more)
-  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 811 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
+  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 816 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
 - **8 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
 - **Why does `Phaser 3 / 4 — Deep Engine Guide (scenes, physics, scale, tilemaps, pooling, architecture)` connect `Phaser 3 / 4 — Deep Engine Guide (scenes, physics, scale, tilemaps, pooling, architecture)` to `video2dsprite.py`?**
-  _High betweenness centrality (0.110) - this node is a cross-community bridge._
+  _High betweenness centrality (0.107) - this node is a cross-community bridge._
 - **Are the 2 inferred relationships involving `P2PRoom` (e.g. with `Multiplayer (WebRTC peer-to-peer)` and `Using the primitive`) actually correct?**
   _`P2PRoom` has 2 INFERRED edges - model-reasoned connections that need verification._
 - **What connects `@hookform/resolvers`, `@radix-ui/react-accordion`, `@radix-ui/react-alert-dialog` to the rest of the system?**
   _44 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `generate2dsprite.py` be split into smaller, more focused modules?**
-  _Cohesion score 0.05290490100616683 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.053613053613053616 - nodes in this community are weakly interconnected._
 - **Why does `1. Scene model — the thing to get right first` connect `video2dsprite.py` to `Phaser 3 / 4 — Deep Engine Guide (scenes, physics, scale, tilemaps, pooling, architecture)`?**
-  _High betweenness centrality (0.106) - this node is a cross-community bridge._
+  _High betweenness centrality (0.103) - this node is a cross-community bridge._
 - **Should `grok-pwa-shared.mjs` be split into smaller, more focused modules?**
-  _Cohesion score 0.06784260515603799 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.06012176560121765 - nodes in this community are weakly interconnected._
 - **Should `video2dsprite.py` be split into smaller, more focused modules?**
-  _Cohesion score 0.07909604519774012 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.07814207650273224 - nodes in this community are weakly interconnected._

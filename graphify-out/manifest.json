@@ -1,794 +1,806 @@
 {
   ".claude/settings.json": {
-    "mtime": 1792174441.4380662,
-    "seen": 1792174454.4623334,
+    "mtime": 1792174462.923184,
+    "seen": 1792174472.3769512,
     "ast_hash": "8a11bd3c471cdac14a4a288d79f86fc9",
     "semantic_hash": ""
   },
   ".grok/skills/generate2dmap/scripts/compose_layered_preview.py": {
-    "mtime": 1792174441.441833,
-    "seen": 1792174454.462339,
+    "mtime": 1792174462.9262857,
+    "seen": 1792174472.3769567,
     "ast_hash": "12011368f569670f8209260943d03e06",
     "semantic_hash": ""
   },
   ".grok/skills/generate2dmap/scripts/extract_prop_pack.py": {
-    "mtime": 1792174441.4420712,
-    "seen": 1792174454.4623418,
+    "mtime": 1792174462.9265256,
+    "seen": 1792174472.3769593,
     "ast_hash": "1a735165539887d31ae7a4d981d60074",
     "semantic_hash": ""
   },
   ".grok/skills/generate2dsprite/scripts/generate2dsprite.py": {
-    "mtime": 1792174441.4423945,
-    "seen": 1792174454.4623625,
+    "mtime": 1792174462.926824,
+    "seen": 1792174472.376961,
     "ast_hash": "f5906a06f2526f727c68f20a9b9cd921",
     "semantic_hash": ""
   },
   ".grok/skills/generate2dsprite/scripts/make_layout_guide.py": {
-    "mtime": 1792174441.4426363,
-    "seen": 1792174454.4623654,
+    "mtime": 1792174462.9270558,
+    "seen": 1792174472.3769622,
     "ast_hash": "ed5a7981d4b12f42f131c02753d64589",
     "semantic_hash": ""
   },
   ".grok/skills/video2dsprite/scripts/video2dsprite.py": {
-    "mtime": 1792174441.4437587,
-    "seen": 1792174454.4623675,
+    "mtime": 1792174462.928184,
+    "seen": 1792174472.3769636,
     "ast_hash": "5bcea9b6c9d326246d30d2123b78f8c4",
     "semantic_hash": ""
   },
   "ai/memory/mem.py": {
-    "mtime": 1792174441.4442885,
-    "seen": 1792174454.4623687,
+    "mtime": 1792174462.9286273,
+    "seen": 1792174472.3769643,
     "ast_hash": "f1adeb6954a832c8b6db344c7f8fd67a",
     "semantic_hash": ""
   },
   "eslint.config.mjs": {
-    "mtime": 1792174441.4442885,
-    "seen": 1792174454.4623704,
+    "mtime": 1792174462.928754,
+    "seen": 1792174472.3769653,
     "ast_hash": "4a44a1c92be89d745c0f2dda2ed840db",
     "semantic_hash": ""
   },
   "package.json": {
-    "mtime": 1792174441.4442885,
-    "seen": 1792174454.4623718,
+    "mtime": 1792174462.9291842,
+    "seen": 1792174472.3769662,
     "ast_hash": "e10ffcc8c32c9c4ce439219b6aa58368",
     "semantic_hash": ""
   },
   "scripts/brand-check.mjs": {
-    "mtime": 1792174441.4460664,
-    "seen": 1792174454.4623735,
+    "mtime": 1792174462.9301841,
+    "seen": 1792174472.3769672,
     "ast_hash": "4ce438284705b0436bb691e6881fbe56",
     "semantic_hash": ""
   },
   "scripts/brand-check.test.mjs": {
-    "mtime": 1792174441.4464283,
-    "seen": 1792174454.462375,
+    "mtime": 1792174462.930736,
+    "seen": 1792174472.3769681,
     "ast_hash": "67c76891b4b3b18ebcfe4bc68a4e42c6",
     "semantic_hash": ""
   },
   "scripts/browser-guard.mjs": {
-    "mtime": 1792174441.4464283,
-    "seen": 1792174454.4623764,
+    "mtime": 1792174462.930736,
+    "seen": 1792174472.3769689,
     "ast_hash": "ee22dd86ed327257324098dc659e9ba7",
     "semantic_hash": ""
   },
   "scripts/browser-smoke.mjs": {
-    "mtime": 1792174441.4464283,
-    "seen": 1792174454.4623783,
+    "mtime": 1792174462.930736,
+    "seen": 1792174472.37697,
     "ast_hash": "a0b61a49d4853e06e2eebb467315d98e",
     "semantic_hash": ""
   },
   "scripts/grok-pwa-plugin.mjs": {
-    "mtime": 1792174441.4464283,
-    "seen": 1792174454.4623795,
+    "mtime": 1792174462.930736,
+    "seen": 1792174472.3769708,
     "ast_hash": "48bdd2375a57cbf4f6b09e6492cbf730",
     "semantic_hash": ""
   },
   "scripts/grok-pwa-plugin.test.mjs": {
-    "mtime": 1792174441.4464283,
-    "seen": 1792174454.4623811,
+    "mtime": 1792174462.930736,
+    "seen": 1792174472.3769717,
     "ast_hash": "8e408f3891e02ab96d6c14abbd65135e",
     "semantic_hash": ""
   },
   "scripts/grok-pwa-shared.d.mts": {
-    "mtime": 1792174441.4464283,
-    "seen": 1792174454.4623826,
+    "mtime": 1792174462.930736,
+    "seen": 1792174472.3769724,
     "ast_hash": "746898db2ae0a5f0e5a06dc12fc54f45",
     "semantic_hash": ""
   },
   "scripts/grok-pwa-shared.mjs": {
-    "mtime": 1792174441.4464283,
-    "seen": 1792174454.462384,
+    "mtime": 1792174462.930736,
+    "seen": 1792174472.3769734,
     "ast_hash": "b1e1158094a2cb5085dbb1f3a383011e",
     "semantic_hash": ""
   },
   "scripts/migrate.mjs": {
-    "mtime": 1792174441.4464283,
-    "seen": 1792174454.4623852,
+    "mtime": 1792174462.930736,
+    "seen": 1792174472.3769739,
     "ast_hash": "cbb1170db95df2c0af2ed0821dfb7e8b",
     "semantic_hash": ""
   },
   "scripts/preview-thumbnail.mjs": {
-    "mtime": 1792174441.4464283,
-    "seen": 1792174454.4623866,
+    "mtime": 1792174462.930736,
+    "seen": 1792174472.3769746,
     "ast_hash": "5b28e63d3513a881cab65375b6ab5954",
     "semantic_hash": ""
   },
   "server/middleware/grok-pwa.ts": {
-    "mtime": 1792174441.4468513,
-    "seen": 1792174454.4623878,
+    "mtime": 1792174462.9311323,
+    "seen": 1792174472.3769755,
     "ast_hash": "2fee4c968d45bf170ba1652c21bdf04a",
     "semantic_hash": ""
   },
   "src/components/app-shell.tsx": {
-    "mtime": 1792174441.446933,
-    "seen": 1792174454.462389,
+    "mtime": 1792174462.931184,
+    "seen": 1792174472.3769767,
     "ast_hash": "39c610eb99b1860a46a5f45efcfd7250",
     "semantic_hash": ""
   },
   "src/components/preview-host-bridge.tsx": {
-    "mtime": 1792174441.4469864,
-    "seen": 1792174454.4623902,
+    "mtime": 1792174462.9312756,
+    "seen": 1792174472.3769774,
     "ast_hash": "709c454a4d043735b91411bebd87256c",
     "semantic_hash": ""
   },
   "src/components/professor-chat.tsx": {
-    "mtime": 1792174441.4469864,
-    "seen": 1792174454.4623919,
+    "mtime": 1792174462.9312756,
+    "seen": 1792174472.3769784,
     "ast_hash": "5352d58be5d1967e6672f9e7e1023947",
     "semantic_hash": ""
   },
   "src/components/ui/button.tsx": {
-    "mtime": 1792174441.4469864,
-    "seen": 1792174454.462393,
+    "mtime": 1792174462.9312756,
+    "seen": 1792174472.376979,
     "ast_hash": "8ca72e2637d856be942012010ad66c0b",
     "semantic_hash": ""
   },
   "src/components/ui/progress.tsx": {
-    "mtime": 1792174441.4471102,
-    "seen": 1792174454.4623945,
+    "mtime": 1792174462.9313984,
+    "seen": 1792174472.37698,
     "ast_hash": "e8b431bd70f8515cd53f8129beafdb65",
     "semantic_hash": ""
   },
   "src/lib/ai.ts": {
-    "mtime": 1792174441.4471102,
-    "seen": 1792174454.4623961,
+    "mtime": 1792174462.9313984,
+    "seen": 1792174472.3769808,
     "ast_hash": "13817ef8b4eef3540a416a155e88be09",
     "semantic_hash": ""
   },
   "src/lib/auth/client.ts": {
-    "mtime": 1792174441.4472022,
-    "seen": 1792174454.4623973,
+    "mtime": 1792174462.9314816,
+    "seen": 1792174472.3769815,
     "ast_hash": "633603c8c99227d454a1b372c4c2971e",
     "semantic_hash": ""
   },
   "src/lib/auth/email-password.ts": {
-    "mtime": 1792174441.447274,
-    "seen": 1792174454.4623988,
+    "mtime": 1792174462.9315493,
+    "seen": 1792174472.3769822,
     "ast_hash": "9fe525bad67dcdaae830769dfbc306d6",
     "semantic_hash": ""
   },
   "src/lib/auth/gates.tsx": {
-    "mtime": 1792174441.447274,
-    "seen": 1792174454.4624002,
+    "mtime": 1792174462.9315493,
+    "seen": 1792174472.376983,
     "ast_hash": "bae63d917bb037ba174e67cad1656232",
     "semantic_hash": ""
   },
   "src/lib/auth/isolation.server.ts": {
-    "mtime": 1792174441.447274,
-    "seen": 1792174454.4624019,
+    "mtime": 1792174462.9315493,
+    "seen": 1792174472.376984,
     "ast_hash": "92a878270bc40e1e697de44e71c640e7",
     "semantic_hash": ""
   },
   "src/lib/auth/middleware.ts": {
-    "mtime": 1792174441.447274,
-    "seen": 1792174454.462403,
+    "mtime": 1792174462.9315493,
+    "seen": 1792174472.3769846,
     "ast_hash": "8ca5804ef10ed46ad849955fb9f2f93a",
     "semantic_hash": ""
   },
   "src/lib/auth/pglite-dialect.ts": {
-    "mtime": 1792174441.447274,
-    "seen": 1792174454.4624043,
+    "mtime": 1792174462.9315493,
+    "seen": 1792174472.3769853,
     "ast_hash": "d4b0fd603b6b66c540d96842693b5c63",
     "semantic_hash": ""
   },
   "src/lib/auth/popup.server.ts": {
-    "mtime": 1792174441.447274,
-    "seen": 1792174454.4624054,
+    "mtime": 1792174462.9315493,
+    "seen": 1792174472.3769863,
     "ast_hash": "55aa0191976fd627b7e783f6445ba1bf",
     "semantic_hash": ""
   },
   "src/lib/auth/preview.ts": {
-    "mtime": 1792174441.447274,
-    "seen": 1792174454.4624066,
+    "mtime": 1792174462.9315493,
+    "seen": 1792174472.376987,
     "ast_hash": "e7a205998fe706596da5208b517b64ff",
     "semantic_hash": ""
   },
   "src/lib/auth/provider.tsx": {
-    "mtime": 1792174441.447274,
-    "seen": 1792174454.4624083,
+    "mtime": 1792174462.9315493,
+    "seen": 1792174472.376988,
     "ast_hash": "ddb3357f36cbdedd1acf9f1b83f19470",
     "semantic_hash": ""
   },
   "src/lib/auth/providers.ts": {
-    "mtime": 1792174441.447274,
-    "seen": 1792174454.4624093,
+    "mtime": 1792174462.9315493,
+    "seen": 1792174472.3769886,
     "ast_hash": "70b378633673cfa1c4c291b468e88653",
     "semantic_hash": ""
   },
   "src/lib/auth/server.ts": {
-    "mtime": 1792174441.447274,
-    "seen": 1792174454.4624104,
+    "mtime": 1792174462.9315493,
+    "seen": 1792174472.3769896,
     "ast_hash": "8963075a4088fac0788417760c9186f9",
     "semantic_hash": ""
   },
   "src/lib/auth/use-current-user.ts": {
-    "mtime": 1792174441.447274,
-    "seen": 1792174454.462412,
+    "mtime": 1792174462.9315493,
+    "seen": 1792174472.3769906,
     "ast_hash": "227eab8e69c0298df0451a51fe4d17c0",
     "semantic_hash": ""
   },
   "src/lib/auth/verify.server.ts": {
-    "mtime": 1792174441.447274,
-    "seen": 1792174454.4624133,
+    "mtime": 1792174462.9315493,
+    "seen": 1792174472.3769913,
     "ast_hash": "8541c52532a5773d0cd060803047d0a9",
     "semantic_hash": ""
   },
   "src/lib/cn.ts": {
-    "mtime": 1792174441.447274,
-    "seen": 1792174454.4624147,
+    "mtime": 1792174462.9315493,
+    "seen": 1792174472.3769922,
     "ast_hash": "d9837f38cc05303254571985e3164050",
     "semantic_hash": ""
   },
   "src/lib/curriculum.ts": {
-    "mtime": 1792174441.447274,
-    "seen": 1792174454.4624245,
+    "mtime": 1792174462.9315493,
+    "seen": 1792174472.3769932,
     "ast_hash": "88e64fce071d27908cf59e501f15ebdb",
     "semantic_hash": ""
   },
   "src/lib/db.ts": {
-    "mtime": 1792174441.447274,
-    "seen": 1792174454.462426,
+    "mtime": 1792174462.9315493,
+    "seen": 1792174472.3769941,
     "ast_hash": "d5a4a7d7d652f6452d89cdcca9bcc15d",
     "semantic_hash": ""
   },
   "src/lib/error-component.tsx": {
-    "mtime": 1792174441.447274,
-    "seen": 1792174454.4624271,
+    "mtime": 1792174462.9321842,
+    "seen": 1792174472.376995,
     "ast_hash": "2d5ecc7c1f88e613d87d830f5fb47e96",
     "semantic_hash": ""
   },
   "src/lib/exam-vault.ts": {
-    "mtime": 1792174441.447274,
-    "seen": 1792174454.4624286,
+    "mtime": 1792174462.9321842,
+    "seen": 1792174472.376996,
     "ast_hash": "387471f54fbe43ed00188fc127d61404",
     "semantic_hash": ""
   },
   "src/lib/mastery.ts": {
-    "mtime": 1792174441.447274,
-    "seen": 1792174454.4624298,
+    "mtime": 1792174462.9321842,
+    "seen": 1792174472.3769972,
     "ast_hash": "970c2cabf5c73f131a9c08586e7d0b36",
     "semantic_hash": ""
   },
   "src/lib/multiplayer/index.ts": {
-    "mtime": 1792174441.447274,
-    "seen": 1792174454.462431,
+    "mtime": 1792174462.9321842,
+    "seen": 1792174472.376998,
     "ast_hash": "81ceb9b98388c1a9fef84ec41feead3f",
     "semantic_hash": ""
   },
   "src/lib/multiplayer/p2p.ts": {
-    "mtime": 1792174441.4481452,
-    "seen": 1792174454.4624321,
+    "mtime": 1792174462.932375,
+    "seen": 1792174472.376999,
     "ast_hash": "46cd503fbb2b6b851d4a8e968987e34f",
     "semantic_hash": ""
   },
   "src/lib/preview-host-bridge.ts": {
-    "mtime": 1792174441.4481452,
-    "seen": 1792174454.4624333,
+    "mtime": 1792174462.932375,
+    "seen": 1792174472.3769996,
     "ast_hash": "835dfe8e3bbb95d7b5f9870f7184e3e4",
     "semantic_hash": ""
   },
   "src/lib/professor.ts": {
-    "mtime": 1792174441.4481452,
-    "seen": 1792174454.4624417,
+    "mtime": 1792174462.932375,
+    "seen": 1792174472.3770003,
     "ast_hash": "3b23043c09ff977ecbff0c6b228abd21",
     "semantic_hash": ""
   },
   "src/lib/store.ts": {
-    "mtime": 1792174441.4481452,
-    "seen": 1792174454.4624436,
+    "mtime": 1792174462.932375,
+    "seen": 1792174472.3770013,
     "ast_hash": "12f2c5cfca2e12ee0d0648cdd49627b3",
     "semantic_hash": ""
   },
   "src/lib/types.ts": {
-    "mtime": 1792174441.4481452,
-    "seen": 1792174454.4624455,
+    "mtime": 1792174462.932375,
+    "seen": 1792174472.3770022,
     "ast_hash": "a360f545cef10670668b0b6bedbcf603",
     "semantic_hash": ""
   },
   "src/router.tsx": {
-    "mtime": 1792174441.4481452,
-    "seen": 1792174454.4624472,
+    "mtime": 1792174462.932375,
+    "seen": 1792174472.3770032,
     "ast_hash": "2941d8d3427e7e14b8de65d3ba70ad79",
     "semantic_hash": ""
   },
   "src/routes/__root.tsx": {
-    "mtime": 1792174441.4481452,
-    "seen": 1792174454.4624486,
+    "mtime": 1792174462.932375,
+    "seen": 1792174472.3770041,
     "ast_hash": "64d514a0c248cb9e59b04e95d3e41347",
     "semantic_hash": ""
   },
   "src/routes/exam.tsx": {
-    "mtime": 1792174441.4485183,
-    "seen": 1792174454.4624503,
+    "mtime": 1792174462.932724,
+    "seen": 1792174472.377005,
     "ast_hash": "4e3a418f12404df89a8807bc28f3c3b3",
     "semantic_hash": ""
   },
   "src/routes/index.tsx": {
-    "mtime": 1792174441.4485183,
-    "seen": 1792174454.4624517,
+    "mtime": 1792174462.932724,
+    "seen": 1792174472.3770058,
     "ast_hash": "152ad267c8fd603e1b36cb485d21d22b",
     "semantic_hash": ""
   },
   "src/routes/ingest.tsx": {
-    "mtime": 1792174441.4485183,
-    "seen": 1792174454.4624527,
+    "mtime": 1792174462.932724,
+    "seen": 1792174472.3770065,
     "ast_hash": "a9e5a3d101f1f99b20c6667e2464cb96",
     "semantic_hash": ""
   },
   "src/routes/review.tsx": {
-    "mtime": 1792174441.4485183,
-    "seen": 1792174454.4624543,
+    "mtime": 1792174462.932724,
+    "seen": 1792174472.3770072,
     "ast_hash": "2759a34b3b009cb348a97b08ea7b79e0",
     "semantic_hash": ""
   },
   "src/routes/subject.$id.tsx": {
-    "mtime": 1792174441.4485183,
-    "seen": 1792174454.4624557,
+    "mtime": 1792174462.932724,
+    "seen": 1792174472.3770082,
     "ast_hash": "c316915e6e0746d8dea2829f417fde39",
     "semantic_hash": ""
   },
   "startup.sh": {
-    "mtime": 1792174441.4485183,
-    "seen": 1792174454.4624577,
+    "mtime": 1792174462.932724,
+    "seen": 1792174472.3770092,
     "ast_hash": "571066ee58ee41ad59d557598817f305",
     "semantic_hash": ""
   },
   "tsconfig.json": {
-    "mtime": 1792174441.4485183,
-    "seen": 1792174454.4624588,
+    "mtime": 1792174462.932724,
+    "seen": 1792174472.3770099,
     "ast_hash": "0fe0829927dc3a687b63592973e1567b",
     "semantic_hash": ""
   },
   "vite.config.ts": {
-    "mtime": 1792174441.4485183,
-    "seen": 1792174454.46246,
+    "mtime": 1792174462.932724,
+    "seen": 1792174472.3770106,
     "ast_hash": "66f313e1ecdcf187183e4995e1efacba",
     "semantic_hash": ""
   },
   ".github/workflows/graphify-refresh.yml": {
-    "mtime": 1792174441.4388306,
-    "seen": 1792174454.4624615,
+    "mtime": 1792174462.923441,
+    "seen": 1792174472.3770132,
     "ast_hash": "b7464fc7fd063a2bab8d700e8bdfd9b4",
     "semantic_hash": ""
   },
   ".grok/GROK.md": {
-    "mtime": 1792174441.4388306,
-    "seen": 1792174454.4624627,
+    "mtime": 1792174462.923441,
+    "seen": 1792174472.3770146,
     "ast_hash": "1b111196354e6be6ce61937738488acf",
     "semantic_hash": ""
   },
   ".grok/skills/auth/SKILL.md": {
-    "mtime": 1792174441.4389613,
-    "seen": 1792174454.4624643,
+    "mtime": 1792174462.9235747,
+    "seen": 1792174472.3770154,
     "ast_hash": "fc8c0f252f4dc4e1de45802995cbd7dc",
     "semantic_hash": ""
   },
   ".grok/skills/building-games/SKILL.md": {
-    "mtime": 1792174441.4389613,
-    "seen": 1792174454.4624653,
+    "mtime": 1792174462.9235747,
+    "seen": 1792174472.377016,
     "ast_hash": "68c53bc54c9f0cd63cf8b9b988fd05d4",
     "semantic_hash": ""
   },
   ".grok/skills/building-games/references/3d-libs.md": {
-    "mtime": 1792174441.4392219,
-    "seen": 1792174454.4624665,
+    "mtime": 1792174462.9238288,
+    "seen": 1792174472.377017,
     "ast_hash": "0009c6d69c57fc457ecc0c9f557c8383",
     "semantic_hash": ""
   },
   ".grok/skills/building-games/references/ai-pathfinding.md": {
-    "mtime": 1792174441.4392757,
-    "seen": 1792174454.4624681,
+    "mtime": 1792174462.923882,
+    "seen": 1792174472.3770182,
     "ast_hash": "4b4aef04a0014733e3bbc5586da3422b",
     "semantic_hash": ""
   },
   ".grok/skills/building-games/references/audio.md": {
-    "mtime": 1792174441.4392757,
-    "seen": 1792174454.4624696,
+    "mtime": 1792174462.923882,
+    "seen": 1792174472.377019,
     "ast_hash": "23afd4c8d22ec6e511546cb89c3dd768",
     "semantic_hash": ""
   },
   ".grok/skills/building-games/references/babylon.md": {
-    "mtime": 1792174441.4392757,
-    "seen": 1792174454.4624712,
+    "mtime": 1792174462.923882,
+    "seen": 1792174472.3770201,
     "ast_hash": "6bbdb4138a06a48a92a046a482f6adb6",
     "semantic_hash": ""
   },
   ".grok/skills/building-games/references/collision-physics.md": {
-    "mtime": 1792174441.4392757,
-    "seen": 1792174454.4624724,
+    "mtime": 1792174462.923882,
+    "seen": 1792174472.3770208,
     "ast_hash": "b3c8db6c3b6711100157c607fc579e8d",
     "semantic_hash": ""
   },
   ".grok/skills/building-games/references/ecs-architecture.md": {
-    "mtime": 1792174441.4392757,
-    "seen": 1792174454.4624736,
+    "mtime": 1792174462.924184,
+    "seen": 1792174472.377022,
     "ast_hash": "57caabc7d100f28b42e7a31ec23efff2",
     "semantic_hash": ""
   },
   ".grok/skills/building-games/references/game-feel-juice.md": {
-    "mtime": 1792174441.4392757,
-    "seen": 1792174454.4624748,
+    "mtime": 1792174462.924184,
+    "seen": 1792174472.3770227,
     "ast_hash": "1e6b48a2ffa995dc8d957f047cfa4407",
     "semantic_hash": ""
   },
   ".grok/skills/building-games/references/genres/board-card-chess.md": {
-    "mtime": 1792174441.4392757,
-    "seen": 1792174454.4624784,
+    "mtime": 1792174462.924184,
+    "seen": 1792174472.3770235,
     "ast_hash": "03eca334b75d74f96cd2ba95bf392ce2",
     "semantic_hash": ""
   },
   ".grok/skills/building-games/references/genres/endless-runner.md": {
-    "mtime": 1792174441.4398067,
-    "seen": 1792174454.4624798,
+    "mtime": 1792174462.9243903,
+    "seen": 1792174472.3770244,
     "ast_hash": "e10b2ac673d460e0176db7ac9966bc75",
     "semantic_hash": ""
   },
   ".grok/skills/building-games/references/genres/fps.md": {
-    "mtime": 1792174441.4398067,
-    "seen": 1792174454.4624813,
+    "mtime": 1792174462.9243903,
+    "seen": 1792174472.3770254,
     "ast_hash": "739a7e01dd6be2d90ef821d2c3c4e833",
     "semantic_hash": ""
   },
   ".grok/skills/building-games/references/genres/platformer-2d.md": {
-    "mtime": 1792174441.4398067,
-    "seen": 1792174454.4624825,
+    "mtime": 1792174462.9243903,
+    "seen": 1792174472.377026,
     "ast_hash": "7ce5106edc7229e63c925468c247cf37",
     "semantic_hash": ""
   },
   ".grok/skills/building-games/references/genres/puzzle-match3-tetris.md": {
-    "mtime": 1792174441.4398067,
-    "seen": 1792174454.4624836,
+    "mtime": 1792174462.9243903,
+    "seen": 1792174472.3770268,
     "ast_hash": "5c168de81ee3219c2ecf93690256367d",
     "semantic_hash": ""
   },
   ".grok/skills/building-games/references/genres/racing-kart.md": {
-    "mtime": 1792174441.4398067,
-    "seen": 1792174454.462485,
+    "mtime": 1792174462.9243903,
+    "seen": 1792174472.3770275,
     "ast_hash": "b86928d6e3bfaeb5640f3afb89e65169",
     "semantic_hash": ""
   },
   ".grok/skills/building-games/references/genres/topdown-twin-stick.md": {
-    "mtime": 1792174441.4398067,
-    "seen": 1792174454.4624863,
+    "mtime": 1792174462.9243903,
+    "seen": 1792174472.377029,
     "ast_hash": "b888bedac9ab2adc0a570ec499496c00",
     "semantic_hash": ""
   },
   ".grok/skills/building-games/references/genres/tower-defense.md": {
-    "mtime": 1792174441.4398067,
-    "seen": 1792174454.4624875,
+    "mtime": 1792174462.9243903,
+    "seen": 1792174472.3770297,
     "ast_hash": "71ff67e9a958d3e3fac9dce9460b09fe",
     "semantic_hash": ""
   },
   ".grok/skills/building-games/references/genres/voxel-minecraft.md": {
-    "mtime": 1792174441.4398067,
-    "seen": 1792174454.462489,
+    "mtime": 1792174462.9243903,
+    "seen": 1792174472.3770304,
     "ast_hash": "15228bba8b707ee5c5f94897368a496a",
     "semantic_hash": ""
   },
   ".grok/skills/building-games/references/input.md": {
-    "mtime": 1792174441.4398067,
-    "seen": 1792174454.46249,
+    "mtime": 1792174462.9243903,
+    "seen": 1792174472.377031,
     "ast_hash": "914b5726f9bd10921139a39d8ac4a245",
     "semantic_hash": ""
   },
   ".grok/skills/building-games/references/phaser.md": {
-    "mtime": 1792174441.4400663,
-    "seen": 1792174454.4624913,
+    "mtime": 1792174462.9243903,
+    "seen": 1792174472.377032,
     "ast_hash": "03658fac8b2cc9ad867b87a0caaaa52a",
     "semantic_hash": ""
   },
   ".grok/skills/building-games/references/procedural-generation.md": {
-    "mtime": 1792174441.4400663,
-    "seen": 1792174454.4624925,
+    "mtime": 1792174462.9243903,
+    "seen": 1792174472.3770328,
     "ast_hash": "6ef5f85dee22f526557f07ad5e484bba",
     "semantic_hash": ""
   },
   ".grok/skills/building-games/references/save-persistence.md": {
-    "mtime": 1792174441.4400663,
-    "seen": 1792174454.4624937,
+    "mtime": 1792174462.9243903,
+    "seen": 1792174472.3770337,
     "ast_hash": "af323bbb7d555e228aa7c52778b9a707",
     "semantic_hash": ""
   },
   ".grok/skills/building-games/references/threejs-foundational.md": {
-    "mtime": 1792174441.4400663,
-    "seen": 1792174454.462495,
+    "mtime": 1792174462.9243903,
+    "seen": 1792174472.3770344,
     "ast_hash": "06415912394f91400daefdf57e05dd7a",
     "semantic_hash": ""
   },
   ".grok/skills/controls/SKILL.md": {
-    "mtime": 1792174441.4400663,
-    "seen": 1792174454.462496,
+    "mtime": 1792174462.925184,
+    "seen": 1792174472.3770354,
     "ast_hash": "86fc6911ffe2beb406dfcadf7045c050",
     "semantic_hash": ""
   },
   ".grok/skills/design-ui/SKILL.md": {
-    "mtime": 1792174441.4400663,
-    "seen": 1792174454.462497,
+    "mtime": 1792174462.925184,
+    "seen": 1792174472.377036,
     "ast_hash": "44d5ca682dad885aa89c8087d6edbded",
     "semantic_hash": ""
   },
   ".grok/skills/design-ui/references/animations.md": {
-    "mtime": 1792174441.4408727,
-    "seen": 1792174454.462498,
+    "mtime": 1792174462.9253912,
+    "seen": 1792174472.3770368,
     "ast_hash": "90c6d3cf8053bb77a7a2c9a9fcf12785",
     "semantic_hash": ""
   },
   ".grok/skills/design-ui/references/performance.md": {
-    "mtime": 1792174441.4409502,
-    "seen": 1792174454.4624994,
+    "mtime": 1792174462.925466,
+    "seen": 1792174472.3770378,
     "ast_hash": "ff4901cbca40ad548fbbd87d0101fe26",
     "semantic_hash": ""
   },
   ".grok/skills/design-ui/references/refined-ui.md": {
-    "mtime": 1792174441.4409502,
-    "seen": 1792174454.4625003,
+    "mtime": 1792174462.925466,
+    "seen": 1792174472.3770385,
     "ast_hash": "bb3a253c6a4d97183a27e07af1684b45",
     "semantic_hash": ""
   },
   ".grok/skills/design-ui/references/surfaces.md": {
-    "mtime": 1792174441.4409502,
-    "seen": 1792174454.4625013,
+    "mtime": 1792174462.925466,
+    "seen": 1792174472.3770394,
     "ast_hash": "80c67a3f8c897b56c42a871eef0ba070",
     "semantic_hash": ""
   },
   ".grok/skills/design-ui/references/typography.md": {
-    "mtime": 1792174441.4409502,
-    "seen": 1792174454.4625025,
+    "mtime": 1792174462.925466,
+    "seen": 1792174472.3770401,
     "ast_hash": "d81fa22e2fa7804ae0ca550c9bc6d25a",
     "semantic_hash": ""
   },
   ".grok/skills/game-animation-frames/SKILL.md": {
-    "mtime": 1792174441.4409502,
-    "seen": 1792174454.4625037,
+    "mtime": 1792174462.925466,
+    "seen": 1792174472.3770409,
     "ast_hash": "f108082b2f19002942b93cff8e36e218",
     "semantic_hash": ""
   },
   ".grok/skills/game-asset-core/SKILL.md": {
-    "mtime": 1792174441.4409502,
-    "seen": 1792174454.4625046,
+    "mtime": 1792174462.925466,
+    "seen": 1792174472.3770416,
     "ast_hash": "2882cbeac2d8644d3c0b50f51532db90",
     "semantic_hash": ""
   },
   ".grok/skills/game-character-consistency/SKILL.md": {
-    "mtime": 1792174441.4410663,
-    "seen": 1792174454.4625058,
+    "mtime": 1792174462.925466,
+    "seen": 1792174472.3770425,
     "ast_hash": "870a82475ac7c0845e2c15bb34974a3b",
     "semantic_hash": ""
   },
   ".grok/skills/game-tilesets/SKILL.md": {
-    "mtime": 1792174441.4410663,
-    "seen": 1792174454.462507,
+    "mtime": 1792174462.925466,
+    "seen": 1792174472.3770432,
     "ast_hash": "d81faad3c7bbda1d5191ca7e5d8c244f",
     "semantic_hash": ""
   },
   ".grok/skills/game-ui-icons/SKILL.md": {
-    "mtime": 1792174441.4410663,
-    "seen": 1792174454.4625082,
+    "mtime": 1792174462.925466,
+    "seen": 1792174472.3770442,
     "ast_hash": "54d6fbd4775af95d1dbd176b0a027448",
     "semantic_hash": ""
   },
   ".grok/skills/generate2dmap/SKILL.md": {
-    "mtime": 1792174441.4415488,
-    "seen": 1792174454.4625094,
+    "mtime": 1792174462.926012,
+    "seen": 1792174472.377045,
     "ast_hash": "83fe68a957b388904740e459e2187e50",
     "semantic_hash": ""
   },
   ".grok/skills/generate2dmap/SOURCE.md": {
-    "mtime": 1792174441.4415488,
-    "seen": 1792174454.4625108,
+    "mtime": 1792174462.926012,
+    "seen": 1792174472.3770459,
     "ast_hash": "d09d671ac22ba3132dafed7fa2c3ba47",
     "semantic_hash": ""
   },
   ".grok/skills/generate2dmap/references/layered-map-contract.md": {
-    "mtime": 1792174441.4415488,
-    "seen": 1792174454.4625125,
+    "mtime": 1792174462.926184,
+    "seen": 1792174472.3770468,
     "ast_hash": "59297da9600d9b701d484e29a3773744",
     "semantic_hash": ""
   },
   ".grok/skills/generate2dmap/references/map-strategies.md": {
-    "mtime": 1792174441.441833,
-    "seen": 1792174454.4625134,
+    "mtime": 1792174462.9262857,
+    "seen": 1792174472.3770475,
     "ast_hash": "813ec15c1c5a1175326e0af9991f99d3",
     "semantic_hash": ""
   },
   ".grok/skills/generate2dmap/references/prop-pack-contract.md": {
-    "mtime": 1792174441.441833,
-    "seen": 1792174454.4625146,
+    "mtime": 1792174462.9262857,
+    "seen": 1792174472.3770483,
     "ast_hash": "0ad58d66b359b1c5adc299d13d7de937",
     "semantic_hash": ""
   },
   ".grok/skills/generate2dsprite/SKILL.md": {
-    "mtime": 1792174441.4421864,
-    "seen": 1792174454.4625158,
+    "mtime": 1792174462.9266388,
+    "seen": 1792174472.377049,
     "ast_hash": "61a2ce9c2ea262a533d0966a4acd2c74",
     "semantic_hash": ""
   },
   ".grok/skills/generate2dsprite/SOURCE.md": {
-    "mtime": 1792174441.4421864,
-    "seen": 1792174454.462519,
+    "mtime": 1792174462.9266388,
+    "seen": 1792174472.3770502,
     "ast_hash": "d09d671ac22ba3132dafed7fa2c3ba47",
     "semantic_hash": ""
   },
   ".grok/skills/generate2dsprite/references/modes.md": {
-    "mtime": 1792174441.4421864,
-    "seen": 1792174454.4625201,
+    "mtime": 1792174462.9266388,
+    "seen": 1792174472.3770509,
     "ast_hash": "19d096378f2aa47592b0455f1e106c3e",
     "semantic_hash": ""
   },
   ".grok/skills/generate2dsprite/references/prompt-rules.md": {
-    "mtime": 1792174441.4423945,
-    "seen": 1792174454.462521,
+    "mtime": 1792174462.926824,
+    "seen": 1792174472.3770516,
     "ast_hash": "9ab77324f7386a281d7b10375656bca9",
     "semantic_hash": ""
   },
   ".grok/skills/imagine/SKILL.md": {
-    "mtime": 1792174441.4426363,
-    "seen": 1792174454.4625223,
+    "mtime": 1792174462.9270558,
+    "seen": 1792174472.3770523,
     "ast_hash": "48318a6deaaec3983658f185cd72dfc9",
     "semantic_hash": ""
   },
   ".grok/skills/multiplayer-p2p/SKILL.md": {
-    "mtime": 1792174441.4426363,
-    "seen": 1792174454.4625235,
+    "mtime": 1792174462.927184,
+    "seen": 1792174472.3770533,
     "ast_hash": "15b049d53a012c5901e0099a3f6d0f36",
     "semantic_hash": ""
   },
   ".grok/skills/neon/SKILL.md": {
-    "mtime": 1792174441.4426363,
-    "seen": 1792174454.462525,
+    "mtime": 1792174462.927184,
+    "seen": 1792174472.377054,
     "ast_hash": "d0e165466fd4efd89f69d7e49177ec6d",
     "semantic_hash": ""
   },
   ".grok/skills/og/SKILL.md": {
-    "mtime": 1792174441.4426363,
-    "seen": 1792174454.4625263,
+    "mtime": 1792174462.927184,
+    "seen": 1792174472.3770547,
     "ast_hash": "c563d899ac890c10b15b75b0151c098f",
     "semantic_hash": ""
   },
   ".grok/skills/threejs/SKILL.md": {
-    "mtime": 1792174441.4426363,
-    "seen": 1792174454.4625273,
+    "mtime": 1792174462.927184,
+    "seen": 1792174472.3770556,
     "ast_hash": "34ee9ec64585e80fca94fd961f42c2dc",
     "semantic_hash": ""
   },
   ".grok/skills/threejs/references/llms-full.txt": {
-    "mtime": 1792174441.4431283,
-    "seen": 1792174454.4625285,
+    "mtime": 1792174462.9275362,
+    "seen": 1792174472.3770566,
     "ast_hash": "cc42743a05e751d503528d51c526e304",
     "semantic_hash": ""
   },
   ".grok/skills/video2dsprite/SKILL.md": {
-    "mtime": 1792174441.4436104,
-    "seen": 1792174454.4625301,
+    "mtime": 1792174462.9279892,
+    "seen": 1792174472.3770573,
     "ast_hash": "b663b47065ce149eb9a5f5e372a387da",
     "semantic_hash": ""
   },
   ".grok/skills/video2dsprite/SOURCE.md": {
-    "mtime": 1792174441.4436104,
-    "seen": 1792174454.4625309,
+    "mtime": 1792174462.9279892,
+    "seen": 1792174472.3770583,
     "ast_hash": "d09d671ac22ba3132dafed7fa2c3ba47",
     "semantic_hash": ""
   },
   ".grok/skills/video2dsprite/references/pipeline.md": {
-    "mtime": 1792174441.4436104,
-    "seen": 1792174454.4625318,
+    "mtime": 1792174462.9279892,
+    "seen": 1792174472.3770592,
     "ast_hash": "8d76658f8335f5d3ec7a66663dff0348",
     "semantic_hash": ""
   },
   ".grok/skills/video2dsprite/references/prompt-rules.md": {
-    "mtime": 1792174441.4437587,
-    "seen": 1792174454.4625332,
+    "mtime": 1792174462.9281366,
+    "seen": 1792174472.3770602,
     "ast_hash": "34994067d30eaa0e87e311f9d75fcb6e",
     "semantic_hash": ""
   },
   ".grok/skills/xai-api/SKILL.md": {
-    "mtime": 1792174441.4437587,
-    "seen": 1792174454.4625342,
+    "mtime": 1792174462.928184,
+    "seen": 1792174472.377061,
     "ast_hash": "dc2ddf0774d6fbc1bd0cb80f1e11f031",
     "semantic_hash": ""
   },
   "AGENTS.md": {
-    "mtime": 1792174441.4437587,
-    "seen": 1792174454.4625351,
-    "ast_hash": "5e722a48bbf61016561b2c5a0ef393a2",
+    "mtime": 1792174462.928184,
+    "seen": 1792174472.3770618,
+    "ast_hash": "131919c227c6160515bececb02706c7a",
     "semantic_hash": ""
   },
   "CLAUDE.md": {
-    "mtime": 1792174441.4437587,
-    "seen": 1792174454.462536,
+    "mtime": 1792174462.928184,
+    "seen": 1792174472.3770626,
     "ast_hash": "eeb98878461aec6a6a3ce7258464deb0",
     "semantic_hash": ""
   },
   "README.md": {
-    "mtime": 1792174441.4437587,
-    "seen": 1792174454.4625375,
+    "mtime": 1792174462.928184,
+    "seen": 1792174472.3770635,
     "ast_hash": "5f3d888fd6b61327d8c92ee866079f30",
     "semantic_hash": ""
   },
   "ai/DECISIONS.md": {
-    "mtime": 1792174441.4437587,
-    "seen": 1792174454.4625387,
+    "mtime": 1792174462.928184,
+    "seen": 1792174472.3770642,
     "ast_hash": "40b6e03349de8c707c02714e74b80b89",
     "semantic_hash": ""
   },
   "ai/NOW.md": {
-    "mtime": 1792174441.4442885,
-    "seen": 1792174454.4625401,
+    "mtime": 1792174462.9286273,
+    "seen": 1792174472.377065,
     "ast_hash": "a4bd3acb6cfd98fa8db46bafde785085",
     "semantic_hash": ""
   },
   "scripts/install-page.html": {
-    "mtime": 1792174441.4464283,
-    "seen": 1792174454.4625413,
+    "mtime": 1792174462.930736,
+    "seen": 1792174472.377067,
     "ast_hash": "cacf1cd1ad8c70d95519985da6408178",
     "semantic_hash": ""
   },
   "public/__grok/icon-180.png": {
-    "mtime": 1792174441.4452214,
-    "seen": 1792174454.4625423,
+    "mtime": 1792174462.9296286,
+    "seen": 1792174472.3770678,
     "ast_hash": "b03cad82a69e2a74b63a8948a6840cb9",
     "semantic_hash": ""
   },
   "public/__grok/install/assets/homescreen/glass-puzzle.svg": {
-    "mtime": 1792174441.4453208,
-    "seen": 1792174454.4625432,
+    "mtime": 1792174462.9297328,
+    "seen": 1792174472.3770688,
     "ast_hash": "970e84aebe83f7b6ed726636f569ea5a",
     "semantic_hash": ""
   },
   "public/__grok/install/assets/homescreen/glass-share.svg": {
-    "mtime": 1792174441.4453888,
-    "seen": 1792174454.4625444,
+    "mtime": 1792174462.929784,
+    "seen": 1792174472.3770695,
     "ast_hash": "a142c15332211d00039905877b941562",
     "semantic_hash": ""
   },
   "public/__grok/install/assets/homescreen/logo-grok.svg": {
-    "mtime": 1792174441.4453888,
-    "seen": 1792174454.4625456,
+    "mtime": 1792174462.929784,
+    "seen": 1792174472.3770704,
     "ast_hash": "afe045abcc2ac21cbcdb16d57d2e58c3",
     "semantic_hash": ""
   },
   "public/__grok/install/assets/homescreen/ob-ipad.png": {
-    "mtime": 1792174441.4453888,
-    "seen": 1792174454.4625466,
+    "mtime": 1792174462.929784,
+    "seen": 1792174472.3770711,
     "ast_hash": "e5ba6233348158a1c27d61b2e8671113",
     "semantic_hash": ""
   },
   "public/__grok/install/assets/homescreen/ob-phone.png": {
-    "mtime": 1792174441.4453888,
-    "seen": 1792174454.462548,
+    "mtime": 1792174462.9301841,
+    "seen": 1792174472.3770719,
     "ast_hash": "396e02445e5c2083df72e15383d1cf3e",
     "semantic_hash": ""
   },
   "public/__grok/install/assets/homescreen/plus.svg": {
-    "mtime": 1792174441.4453888,
-    "seen": 1792174454.462549,
+    "mtime": 1792174462.9301841,
+    "seen": 1792174472.3770728,
     "ast_hash": "355c273964aa32a19790212eab246fa6",
     "semantic_hash": ""
   },
   "public/favicon.svg": {
-    "mtime": 1792174441.4453888,
-    "seen": 1792174454.46255,
+    "mtime": 1792174462.9301841,
+    "seen": 1792174472.3770738,
     "ast_hash": "49f97b5433f073e03e39344b44ac14d5",
+    "semantic_hash": ""
+  },
+  ".github/workflows/ci.yml": {
+    "mtime": 1792174462.9233909,
+    "seen": 1792174472.3770123,
+    "ast_hash": "32c0dee90b88a26102c854697ad5430a",
+    "semantic_hash": ""
+  },
+  "docs/agents/AGENTS-reference.md": {
+    "mtime": 1792174462.928754,
+    "seen": 1792174472.377066,
+    "ast_hash": "7952e2fe6564dbd0b8c55a0890100a61",
     "semantic_hash": ""
   }
 }
